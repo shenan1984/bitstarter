@@ -21,6 +21,9 @@ heroku plugins:install git://github.com/ddollar/heroku-config.git
 # - See .env.dummy for details.
 cp .env.dummy .env
 
+# install required dependencies from package.json
+npm install
+
 # For local: setup postgres (one-time) and then run the local server
 ./pgsetup.sh
 
