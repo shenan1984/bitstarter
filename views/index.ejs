@@ -118,7 +118,19 @@
   })();
 
 </script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+      today = new Date();
 
+      BigDay = new Date("September 09, 2013");
+      msPerDay = 24 * 60 * 60 * 1000 ;
+      timeLeft = (BigDay.getTime() - today.getTime());
+      e_daysLeft = timeLeft / msPerDay;
+      daysLeft = Math.floor(e_daysLeft);
+
+      $("#countdown").text(daysLeft);
+  });
+</script>
 </head>
 <body>
 
@@ -189,7 +201,7 @@
           </div>
           <div class="span4">
             <div class="linediv-r">
-            <h3>10</h3> <p>days left</p>
+            <h3 id="countdown"></h3> <p>days left</p>
             </div>
           </div>
         </div>
@@ -200,8 +212,8 @@
         <!-- Bootstrap progress bar -->
         <!-- http://twitter.hithub.io/bootstrap/components.html#progress -->
         <div class="thermometer progress active">
-          <div class="bar bar-success" style="width:60%;"></div>
-          <div class="bar bar-warning" style="width:40%;"></div>
+          <div class="bar bar-success" style="width:<%= (bc_sum / 25000) * 100 %>%;"></div>
+          <div class="bar bar-warning" style="width:<%= 100 - (bc_sum / 25000) * 100 %>%;"></div>
         </div>
       </div>
       </div>
