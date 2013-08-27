@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>AppLoquent - Analytics of the Job App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link rel="stylesheet" type="text/css" href="hw4.css"-->
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
@@ -183,7 +182,7 @@
       <div class="row-fluid">
       <div class="span8 offset2">
         <div class="statistics">
-          <div class="span4">
+          <div class="span3">
             <!-- linediv-l and linediv-r give dividing lines that look different in horizontal and vertical layouts, illustraing media queries -->
 	    <% var backers=0; var bc_sum=0; %>
 	    <% for(var i=0; i<orders.length; i++) {%>
@@ -194,12 +193,12 @@
             <h3><%= backers %></h3> <p>backers</p>
             </div>
           </div>
-          <div class="span4">
+          <div class="span6">
             <div class="linediv-c">
             <h3><%= bc_sum %> BTC</h3> <p> of 250 BTC</p>
             </div>
           </div>
-          <div class="span4">
+          <div class="span3">
             <div class="linediv-r">
             <h3 id="countdown"></h3> <p>days left</p>
             </div>
@@ -278,27 +277,27 @@
   <!-- FAQ and JS accordion -->
   <!-- jquery.js and bootstrap.js as dependencies -->
   <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
-  <div class="row-fluid faq">
+  <div class="row-fluid about">
     <div class="span10 offset1">
-      <h3>FAQ</h3>
+      <h3>About</h3>
       <div class="accordion" id="accordion2">
         <div class="accordion-group">
           <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">What does FAQ stand for?</a>
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">How does AppLoquent work?</a>
           </div>
           <div id="collapseOne" class="accordion-body collapse">
             <div class="accordion-inner">
-              Frequently Asked Question.
+              It reads through your application materials for patterns, and tracks it against job description records
             </div>
           </div>
         </div>
         <div class="accordion-group">
           <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="accordion2" href="#collapseTwo">What's a Frequently Asked Question?</a>
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="accordion2" href="#collapseTwo">What sites will AppLoquent work with?</a>
           </div>
           <div id="collapseTwo" class="accordion-body collapse">
             <div class="accordion-inner">
-              A question which is commonly asked by users.
+              API integration is being built with LinkedIn and Indeed.  Hopefully as other websites such as Vizify and ResumUP gain popularity, they will be publicly accessible via API as well.
             </div>
           </div>
         </div>
@@ -322,7 +321,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-43282223-1', 'guarded-tor-9192.herokuapp.com');
+  ga('create', 'UA-43282223-1', 'apploquent.herokuapp.com');
   ga('send', 'pageview');
 
 </script>
