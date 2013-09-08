@@ -6,12 +6,16 @@ var async   = require('async')
   , http    = require('http')
   , https   = require('https')
   , db      = require('./models')
-, nodemailer = require('nodemailer');
+  , nodemailer = require('nodemailer');
 
 var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
+
+//  Use bodyParser for form
+app.use(express.bodyParser());
+    
 
 // Render homepage (note trailing slash): example.com/
 app.get('/', function(request, response) {
@@ -124,9 +128,11 @@ var addOrder = function(order_obj, callback) {
 };
 
 // nodemailer functionality
+/*
 app.get('/contact', function(request, response) {
     response.render('contact', { title: 'AppLoquent - Contact', page: 'contact' })
 });
+*/
 
 app.post('/contact', function (req, res) {
     var mailOpts, smtpTrans;
@@ -143,15 +149,15 @@ app.post('/contact', function (req, res) {
 	to: 'shenan1984@gmail.com',
 	subject: 'AppLoquent contact form',
 	text: req.body.message
-    };
+   };
     smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-	  response.render('contact', { title: 'AppLoquent - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+	  response.render('/', { msg: 'Error occured, message not sent.', err: true, page: '/' })
       }
       //Yay!! Email sent
 	else {
-	    response.render('contact', { title: 'AppLoquent - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+	    response.render('/', { msg: 'Message sent! Thank you.', err: false, page: '/' })
 	}
     });
 });
