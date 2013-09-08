@@ -6,12 +6,17 @@ var async   = require('async')
   , http    = require('http')
   , https   = require('https')
   , db      = require('./models')
+  , path    = require('path')
   , nodemailer = require('nodemailer');
 
 var app = express();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
+
+// use stylesheet folder
+// app.use("/css", express.static(__dirname + '/css'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //  Use bodyParser for form
 app.use(express.bodyParser());
