@@ -129,28 +129,29 @@ app.get('/contact', function(req, res) {
 });
 
 app.post('/contact', function (req, res) {
-  var smtpTrans = nodemailer.createTransport('SMTP', {
-      service: 'Gmail',
-      auth: {
-          user: "shenan1984@gmail.com",
-          pass: "cmmhemavyierbfgx"
-      }
-  });
-  //Mail options
-  var mailOpts = {
-      from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
-      to: 'shenan1984@gmail.com',
-      subject: 'AppLoquent contact form',
-      text: req.body.message
-  };
-  smtpTrans.sendMail(mailOpts, function (error, response) {
+    var mailOpts, smtpTrans;
+    smtpTrans = nodemailer.createTransport('SMTP', {
+	service: 'Gmail',
+	auth: {
+            user: "shenan1984@gmail.com",
+            pass: "cmmhemavyierbfgx"
+	}
+    });
+    //Mail options
+    mailOpts = {
+	from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
+	to: 'shenan1984@gmail.com',
+	subject: 'AppLoquent contact form',
+	text: req.body.message
+    };
+    smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-          res.render('contact', { title: 'AppLoquent - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+	  res.render('contact', { title: 'AppLoquent - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
       }
       //Yay!! Email sent
-      else {
-          res.render('contact', { title: 'AppLoquent - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
-      }
-  });
+	else {
+	    res.render('contact', { title: 'AppLoquent - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+	}
+    });
 });

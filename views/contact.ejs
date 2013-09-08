@@ -1,7 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  </head>
-  <body>
-  </body>
+    <meta charset="utf-8">
+    <title>AppLoquent - Analytics of the Job App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
+    <!--link type="text/css" rel="stylesheet"
+	  href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"-->
+    <style type="text/css">
+    /* Large Desktop */
+    @media (min-width: 980px) {
+      body {
+        padding-top: 60px;
+      }
+      .linediv-l {
+        border-right: 1px white solid;
+      }
+      .linediv-r {
+        border-left: 1px white solid;
+      }
+    }
+
+    /* Landscape phones and down */
+    @media (max-width: 480px) {
+      .copy {
+        padding: 2.5% 10%;
+      }
+      .linediv-l {
+        border-bottom: 1px white solid;
+      }
+      .linediv-r {
+        border-top: 1px white solid
+      }
+    }
+
+    /* All form factors */
+
+    /* Main body and headings */
+    body {
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      background-color: #F2EED8;
+    }
+    .heading, .subheading {
+      font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+    p.lead {
+      padding-top: 1.5%;
+      font-size: 24px;
+      line-height: 30px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    /* Video pitch and Action */
+    .pitch {
+      padding: 2.5% 0%;
+    }
+    .order {
+      padding: 2% 0%;
+    }
+    .actions {
+      background-color: #343434;
+      padding: 3% 0%;
+    }
+    .video, .thermometer, .order, .social, .statistics {
+      text-align: center;
+    }
+    .statistics h3, .statistics p {
+      color: white;
+    }
+
+    /* Marketing Copy and Footer */
+    .copy {
+      padding-top: 2.5%;
+      padding-bottom: 2.5%;
+      text-align: justify;
+    }
+    .asset {
+      padding: 2.5% 0%;
+    }
+    .footer {
+      color: #cccccc;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 11px;
+    }
+    .footer a {
+      color: #ccccff;
+    }
+    /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
+    div.addthis_toolbox {
+      width:180px
+      margin: 0 auto;
+    }
+    /* additional mod to imported css */
+    div.accordion-group {
+      background-color: #ffffff;
+    }
+    /* contact form specifications */
+    .cform, .address {
+      text-align: center;
+      background-color: #ffffff;
+      display: inline-block;
+    }
+    .address p {
+      text-align: left;
+      margin: 5%;
+    }
+    div.map {
+      padding: 0px;
+    }
+    figure {
+      padding: 0px;
+      margin: 0px;
+      height: 250px;
+    }
+  </style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43282223-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+      today = new Date();
+
+      BigDay = new Date("September 09, 2013");
+      msPerDay = 24 * 60 * 60 * 1000 ;
+      timeLeft = (BigDay.getTime() - today.getTime());
+      e_daysLeft = timeLeft / msPerDay;
+      daysLeft = Math.floor(e_daysLeft);
+
+      $("#countdown").text(daysLeft);
+  });
+</script>
+</head>
+<body id="Home" data-spy="scroll" data-target="#navbarTop">
+
+<!-- Mobile-friendly navbar adapted from example. -->
+<!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
+<div id="navbarTop" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="http://www.panduins.com/">Panduins Network</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="#Home">Home</a></li>
+          <li class=""><a href="#About">About</a></li>
+          <li><a href="/orders">Orders</a></li>
+          <li class=""><a href="#Contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row-fluid">
+    <form action="/contact" name="contactus" id="contactus" method="post">
+      <fieldset>
+	<input type="text" id="name" name="name" class="input-block-level" placeholder="Your name">
+	<input type="text" id="email" name="email" class="input-block-level" placeholder="Your email">
+	<textarea rows="6" id="message" name="message" class="input-block-level" placeholder="Your message"></textarea>
+	<button type="submit" id="submit" name="submit" class="btn btn-warning pull-right">Send</button>
+      </fieldset>
+    </form>
+  </div>
+  <div class="row-fluid">
+    <% if(typeof msg !== 'undefined') { %>
+      <% if(!!err) { %>
+        <div class="msgbox err"></div>
+      <% } else { %>
+        <div class="msgbox success"></div>
+      <% } %>
+  </div>
+</div>
+
+</body>
 </html>
