@@ -153,11 +153,11 @@ app.post('/contact', function (req, res) {
     smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-	  response.render('/', { msg: 'Error occured, message not sent.', err: true, page: '/' })
+	  res.render('/contact', { msg: 'Error occured, message not sent.', err: true, page: 'contact' })
       }
       //Yay!! Email sent
 	else {
-	    response.render('/', { msg: 'Message sent! Thank you.', err: false, page: '/' })
+	    res.render('/contact', { msg: 'Message sent! Thank you.', err: false, page: 'contact' })
 	}
     });
 });
