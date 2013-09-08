@@ -124,8 +124,8 @@ var addOrder = function(order_obj, callback) {
 };
 
 // nodemailer functionality
-app.get('/contact', function(req, res) {
-    res.render("contact", { title: 'AppLoquent - Contact', page: 'contact' })
+app.get('/contact', function(request, response) {
+    response.render('contact', { title: 'AppLoquent - Contact', page: 'contact' })
 });
 
 app.post('/contact', function (req, res) {
@@ -147,11 +147,11 @@ app.post('/contact', function (req, res) {
     smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-	  res.render('contact', { title: 'AppLoquent - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+	  response.render('contact', { title: 'AppLoquent - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
       }
       //Yay!! Email sent
 	else {
-	    res.render('contact', { title: 'AppLoquent - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+	    response.render('contact', { title: 'AppLoquent - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
 	}
     });
 });
